@@ -1,43 +1,32 @@
+<% 
+    var title = [];
+    if (page.title) title.push(page.title);
+    if (page.tag) title.push(page.tag);
+    if (page.category) title.push(page.category);
+    if (page.archive) {
+        title.push("Blog")
+        // Add archive stuff...
+    }
+    if (page.current > 1) title.push("Page " + page.current);
+    if (config.title) title.push(config.title);
+
+    var description = strip_html(page.description || page.excerpt || config.description).replace(/^\s*/, '').replace(/\s*$/, '')
+    
+    //OpenGraph Specific
+    var type = is_post() ? "article" : "website";
+    var coverimage = config.url + '/' + (page.coverimage || config.coverimage);
+%>
+
 <head>
     <meta charset="utf-8">
-    <% 
-        var title = [];
-        if (page.title) title.push(page.title);
-        if (page.tag) title.push(page.tag);
-        if (page.category) title.push(page.category);
-        if (page.archive) {
-            title.push("Blog")
-            // Add archive stuff...
-        }
-        if (page.current > 1) title.push("Page " + page.current);
-        if (config.title) title.push(config.title);
-    %>
     <title><%= title.join(" | ") %></title>
-    <% if (page.description) {%>
-        <meta name="description" content="<%= page.description %>">
-        <meta property="og:description" content="<%= page.description %>">
-    <% } else if (page.excerpt) { %>
-        <meta name="description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
-        <meta property="og:description" content="<%= strip_html(page.excerpt).replace(/^\s*/, '').replace(/\s*$/, '') %>">
-    <% } else if (config.description) { %>
-        <meta name="description" content="<%= config.description %>">
-        <meta property="og:description" content="<%= config.description %>">
-    <% } %>
+    <% if (description) { %><meta name="description" content="<%= description %>"><% } %>
     <% if (config.author) { %><meta name="author" content="<%- config.author %>"><% } %>
     <% if (page.keywords) { %><meta name="keywords" content="<%- page.keyword %>"><% } %>
-    <% if (page.coverimage) { %>
-        <meta property="og:image" content="<%- page.coverimage %>">
-    <% } else if (config.coverimage) { %>
-        <meta property="og:image" content="<%- config.url + '/' + config.coverimage %>">
-    <% } %>
-    <% if (is_post()) {%> 
-        <meta property="og:type" content="article">
-    <% } else { %>
-        <meta property="og:type" content="website">
-    <% } %>
-    <meta property="og:url" content="<%- url.replace(/index\.html$/, '') %>">
-    <meta property="og:site_name" content="<%- config.title %>">
-    <% if (theme.comments.facebook.app_id) { %><meta property="fb:app_id" content="<%- theme.comments.facebook.app_id %>"><% } %>
+
+    <%- partial('_partial/head/opengraph', {fb_app_id: theme.comments.facebook.app_id, type: type, title: title, description: description, url: url, image: coverimage }) %>
+    <%- partial('_partial/head/twitter', { type: type }) %>
+    
     <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
     <link rel="icon" href="<%- url_for('/favicon.png') %>">
     <%- css('css/style.css', 'https://fonts.googleapis.com/css?family=Open+Sans:400,600|Nunito+Sans:700') %>
