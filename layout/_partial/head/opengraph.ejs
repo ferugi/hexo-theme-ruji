@@ -20,7 +20,7 @@
     <% if (modified_time) { %><meta property="article:modified_time" content="<%- modified_time %>"><% } %>
     <% if (tags && tags.length > 0) { %>
         <% tags.forEach (function(tag) { %>
-            <meta property="article:tag" content="<%- tag %>">
+            <meta property="article:tag" content="<%- tag.name %>">
         <% }); %>
     <% } %>
 <% } %>

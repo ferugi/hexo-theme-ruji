@@ -1,5 +1,4 @@
 DO NOW
-    twitter card/open graph stuff
     add bio/portfolio insert
 
 DO FUTURE

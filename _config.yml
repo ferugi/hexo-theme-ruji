@@ -8,10 +8,15 @@ links:
         GitHub: https://github.com/ferugi
         #twitch: https://www.twitch.tv/furiosustv
 
+seo:
+    facebook:
+        app_id: 929230953797958
+    twitter:
+        username: "ferugielheri"
+
 comments:
     using: facebook     #   "facebook" or "disqus"
     facebook:
-        app_id: 929230953797958
         count: 5
         width: 100%
         colorscheme: light
