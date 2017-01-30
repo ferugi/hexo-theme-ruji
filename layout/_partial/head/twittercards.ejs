@@ -1,0 +1,36 @@
+<!-- Twitter Cards -->
+<% if (card_type) { %><meta property="twitter:card" content="<%- card_type %>"><% } %>
+<% if (site_username) { %><meta property="twitter:site" content="<%- site_username %>"><% } %>
+<% if (creator_username) { %><meta property="twitter:creator" content="<%- creator_username %>"><% } %>
+<% if (creator_id) { %><meta property="twitter:creator:id" content="<%- creator_id %>"><% } %>
+<% if (description) { %><meta property="twitter:description" content="<%- description %>"><% } %>
+<% if (title) { %><meta property="twitter:title" content="<%- title %>"><% } %>
+<% if (image) { %><meta property="twitter:image" content="<%- image %>"><% } %>
+<% if (image_alt) { %><meta property="twitter:image:alt" content="<%- image_alt %>"><% } %>
+
+<% if (card_type == "player") { %>
+    <% if (player_url) { %><meta property="twitter:player" content="<%- player_url %>"><% } %>
+    <% if (player_height) { %><meta property="twitter:player:height" content="<%- player_height %>"><% } %>
+    <% if (player_width) { %><meta property="twitter:player:width" content="<%- player_width %>"><% } %>
+    <% if (player_stream_url) { %><meta property="twitter:player:stream" content="<%- player_stream_url %>"><% } %>
+    <% if (player_stream_type) { %><meta property="twitter:player:content_type" content="<%- player_stream_type %>"><% } %>
+<% } %>
+
+<% if (card_type == "app") { %>
+    <!-- Iphone -->
+    <% if (app_name_iphone) { %><meta property="twitter:app:name:iphone" content="<%- app_name_iphone %>"><% } %>
+    <% if (app_id_iphone) { %><meta property="twitter:app:id:iphone" content="<%- app_id_iphone %>"><% } %>
+    <% if (app_url_iphone) { %><meta property="twitter:app:url:iphone" content="<%- app_url_iphone %>"><% } %>
+
+    <!-- Ipad -->
+    <% if (app_name_ipad) { %><meta property="twitter:app:name:ipad" content="<%- app_name_ipad %>"><% } %>
+    <% if (app_id_ipad) { %><meta property="twitter:app:id:ipad" content="<%- app_id_ipad %>"><% } %>
+    <% if (app_url_ipad) { %><meta property="twitter:app:url:ipad" content="<%- app_url_ipad %>"><% } %>
+
+    <!-- Android -->
+    <% if (app_name_googleplay) { %><meta property="twitter:app:name:googleplay" content="<%- app_name_googleplay %>"><% } %>
+    <% if (app_id_googleplay) { %><meta property="twitter:app:id:googleplay" content="<%- app_id_googleplay %>"><% } %>
+    <% if (app_url_googleplay) { %><meta property="twitter:app:url:googleplay" content="<%- app_url_googleplay %>"><% } %>
+
+    <% if (app_country) { %><meta property="twitter:app:country" content="<%- app_country %>"><% } %>
+<% } %>
