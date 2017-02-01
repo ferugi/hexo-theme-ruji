@@ -7,6 +7,11 @@
             <%- partial('_partial/titlepanel') %>
         <% } %>
         <main  <% if (is_home()) { %>class="index"<% } %>>
+            <% if (is_home() && site.pages) {%>
+                <% if (site.pages.filter(function(item){return item.layout == "bio"}).first()){ %>
+                    <%- partial('_partial/article', {item: site.pages.filter(function(item){return item.layout == "bio"}).first(), index: true}) %>
+                <% } %>
+            <% } %>
             <%- body %>
             <footer class="site-footer">
                 <% if (theme.show_copyright) { %>
