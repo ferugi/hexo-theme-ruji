@@ -1,0 +1,30 @@
+<% if (index) { %>
+    <article class="index">
+<% } else { %>
+    <article>
+<% } %>
+    <div class="icon">
+        <% if (item.icon) { %>
+            <img src="<%- item.icon %>">
+        <% } else { %>
+            <i class="fa fa-info" aria-hidden="true"></i>
+        <% } %>
+    </div>
+    <header>
+        <h1 class="article-title"><%- item.title %></h1>
+        <div class="artile-sub-header">
+        </div>
+    </header>
+    <div class="entry">
+        <% if (index && item.excerpt) { %>
+            <%- item.excerpt %>
+        <% } else { %>
+        <%- item.content %>
+        <% } %>
+    </div>
+</article>
+<% if (!index) { %>
+    <section id="comments">
+        <%- partial('_partial/post/comments', {fbcommentlink: item.fbcommentlink }) %>
+    </section>
+<% } %>

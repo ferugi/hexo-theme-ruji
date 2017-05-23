@@ -1,5 +1,5 @@
-<nav>
-    <ul class="contact-links">
+<nav class="contact-links">
+    <ul>
         <% Object.keys(theme.links.socialmedia).forEach(function(key){ %>
             <li><%- link_to(theme.links.socialmedia[key], '<i class="fa fa-' + key.toLowerCase() + '" aria-hidden="true"></i>', {external: true, title: key}) %></li>
         <% }); %>
