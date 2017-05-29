@@ -7,9 +7,22 @@ article
         max-width: 32em
 
     h2
-        margin-top: 2em
-        
+        margin-top: 1.5em
+        font-size: 1.2em
+    
+    h3
+        font-size: 1.05em
+
+    .page-nav
+        float: right
+        margin-right: -7em
+
     header
+        a
+            &:hover
+                text-decoration: none
+                background: $feature-light
+                
         h1
             font-weight: bold
             background-color: $text
@@ -17,8 +30,8 @@ article
             margin: 0.2em 0 0 0
             padding: 0.2em 0.7em
             border-bottom: 1px solid rgba(0,0,0,0.25)
-            font-family: 'Nunito Sans',sans-serif
             border-radius: 2px
+
         #me
             font-weight: 300
 
@@ -31,7 +44,6 @@ article
         width: 5em
         height: 5em
         margin: auto
-        color: $feature
         border-radius: 10px
         float: left
         margin-left: -6em

@@ -4,23 +4,25 @@
     <article>
 <% } %>
     <div class="icon">
-        <a href="<%- config.root %><%- item.path %>">
-            <% if (item.icon) { %>
-                <img src="<%- item.icon %>">
-            <% } else { %>
-                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-            <% } %>
-        </a>
+        <% if (item.icon) { %>
+            <img src="<%- item.icon %>">
+        <% } else { %>
+            <i class="fa fa-file-text-o" aria-hidden="true"></i>
+        <% } %>
     </div>
-    <!-- WORK IN PROGRESS<nav class="page-nav">
-        <%- link_to("#comments", "<i class='fa fa-comments-o' aria-hidden='true'></i> Comments") %>
-    </nav>-->
+    <% if (is_post()) { %>
+        <nav class="page-nav">
+            <%- link_to("#comments", "<i class='fa fa-comments-o' aria-hidden='true'></i> Comments") %>
+        </nav>
+    <% } %>
     <header>
         <time>
             <%- date(item.date, 'Do MMMM YYYY') %>
         </time>
         <% if (item.title) {%>
+            <a href="<%- config.root %><%- item.path %>">
             <h1 class="article-title"><%- item.title %></h1>
+            </a>
         <% } %>
     </header>
     <div class="entry">

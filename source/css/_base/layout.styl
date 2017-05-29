@@ -22,7 +22,7 @@ h1
     font-weight: 600
 
     &.title
-        font-size: 2em
+        font-size: 1.5em
 
 h2
     font-size: 1em
@@ -44,9 +44,11 @@ code
     font-family: monospace
     display: inline-block
     background: rgba(0,0,0,0.1)
-    border-radius: 2px
-    padding: 0.2em 0.35em
+    //border-radius: 2px
+    padding: 0.4em 0.7em
+    font-size: 1em
     word-break: break-all
+    margin-top: 0.2em
 
 input
     text-shadow: 0px
@@ -81,7 +83,7 @@ main
     text-align: center
 
 #bio
-    margin-bottom 10em
+    margin-bottom 6em
 
 #titlepanel
     z-index: 1
@@ -134,7 +136,7 @@ main
 
         h1.title
             position: relative
-            top: 69%
+            top: 71%
             font-size: 4em
             font-weight: bold
 
@@ -160,7 +162,7 @@ main
     color: $base
     padding: 0.3em 0.6em
     border-radius: 0.25em
-    font-size: 0.875em
+    
 
     &:hover
         text-decoration: none
@@ -169,11 +171,10 @@ main
 #topbar, #bottombar
     z-index: 1
     width: 100%
-    background: $feature
-    
+    background: linear-gradient(59deg, $feature-light 0%, $feature 100%), $feature
+    font-size: 0.875em
     position: fixed
     color: $base
-    font-size: 1em
 
     .iconpic
         position: absolute
@@ -191,6 +192,7 @@ main
 
     .button, .button:visited
         color: $base
+        background: transparent
 
     &.index
         display: none
@@ -305,6 +307,9 @@ main
     article
         .icon
             display: none
+
+        .page-nav
+            display: none
     
 // Extreme Portait
 @media only screen and (max-aspect-ratio: 8/13)
@@ -317,7 +322,19 @@ main
         font-size: 1.3vw
 
 // Min height
-@media only screen and (max-height: 400px)
+@media only screen and (max-height: 450px)
     #titlepanel.index
+        background-position-x: 25%;
+        
         h2
             display: none
+
+        h1.title
+            top: 30%
+            left: 21%
+        
+        .contact-links
+            top: 32%
+            left: 21%
+            width: 100%
+            font-size: 1.5em
