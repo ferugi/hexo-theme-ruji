@@ -9,9 +9,9 @@
 <% } %>
 
 <section id="articles">
-    <h1 class="title">Blog</h1>
-    <% page.posts.each(function(item){ %>
-        <%- partial('_partial/article', {item: item, index: true}) %>
-    <% }); %>
-    <%- partial('_partial/pagination') %>
+    <%- link_to("/blog/", '<h1 class="title">Latest Blog Post</h1>', {title: "Visit my blog"}) %>
+    <%- partial('_partial/article', {item: page.posts.first(), index: true}) %>
+
+    
+    
 </section>

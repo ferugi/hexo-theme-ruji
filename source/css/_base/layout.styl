@@ -74,7 +74,7 @@ main
     width: auto
     transition: 0.25s
     overflow: hidden
-    padding: 2em 1em
+    padding: 6em 1em
 
 .title
     font-family: 'Nunito Sans', sans-serif
@@ -291,6 +291,10 @@ main
     #titlepanel.index
         width: 100%
         height: 70%
+    
+    main
+        &.index
+            padding: 2em 1em
 
 // Article Min-Width
 @media only screen and (max-width: 46em)
@@ -300,8 +304,8 @@ main
 
     article
         .icon
-            display: none        
-
+            display: none
+    
 // Extreme Portait
 @media only screen and (max-aspect-ratio: 8/13)
     #titlepanel.index

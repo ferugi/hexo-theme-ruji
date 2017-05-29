@@ -17,11 +17,11 @@
     </nav>-->
     <header>
         <time>
-                <%- item.date.toDate().toDateString() %>
+            <%- date(item.date, 'Do MMMM YYYY') %>
         </time>
-        <h1 class="article-title"><%- item.title %></h1>
-        <div class="artile-sub-header">
-        </div>
+        <% if (item.title) {%>
+            <h1 class="article-title"><%- item.title %></h1>
+        <% } %>
     </header>
     <div class="entry">
         <% if (index && item.excerpt) { %>
